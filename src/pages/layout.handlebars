@@ -1,0 +1,24 @@
+<div class="entry">
+  <h1>{{title}}</h1>
+  <div class="body">
+    {{body}}
+  </div>
+  <div>
+	颜色: <span b-bind="formData.color">{{formData.color}}</span>, 尺寸: <span b-bind="formData.size">{{formData.size}}</span>
+  </div>
+  <form>
+	  <p>
+		  <label>颜色</label>
+		  <input type="text" b-input="formData.color" value="{{formData.color}}">
+	  </p>
+	  <p>
+		  <label>尺寸</label>
+		  <input type="text" b-input="formData.size" value="{{formData.size}}">
+	  </p>
+  </form>
+</div>
+<style>
+	h1{
+		background-color: darkgoldenrod;
+	}
+</style>
