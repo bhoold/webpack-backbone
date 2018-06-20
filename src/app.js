@@ -2,8 +2,8 @@ import {AppView} from './views/appView';
 import {AppModel} from './models/appModel';
 
 
-let appView = new AppView({
-  model: new AppModel,
+new AppView({
+  model: new AppModel
   /*
   collection,
   el,

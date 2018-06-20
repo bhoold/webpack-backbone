@@ -1,12 +1,13 @@
+import 'lodash';
 import $ from 'jquery';
-import BaseView from './baseView';
+import Backbone from 'backbone';
 
-const AppView =  BaseView.extend({
+var AppView =  Backbone.View.extend({
 	el: $("#app"),
 	template: require("../pages/layout.hbs"),
 	events: {
 		'input [b-input="formData.color"]': "onColorChange",
-		'input [b-input="formData.size"]': "onSizeChange",
+		'input [b-input="formData.size"]': "onSizeChange"
 		
 	},
 	onColorChange: function(e) {

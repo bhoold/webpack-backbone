@@ -13,7 +13,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "babel-polyfill": "^6.26.0",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-es3-member-expression-literals": "^6.22.0",
+    "babel-plugin-transform-es3-property-literals": "^6.22.0",
     "babel-preset-env": "^1.7.0",
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.5.1",
@@ -35,6 +38,8 @@
     "lodash": "^4.17.10"
   },
   "browserslist": [
-    "ie >= 8"
+    "> 1%",
+    "last 2 versions",
+    "not ie < 8"
   ]
 }

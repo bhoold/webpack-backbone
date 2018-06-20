@@ -7,8 +7,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
 	mode: 'development',
 	entry: {
-		//app: './src/app.js'
-		app: ['babel-polyfill', './src/app.js']
+		app: './src/app.js'
+		//app: ['babel-polyfill', './src/app.js']
 	},
 	output: {
 		filename: '[name].bundle.js',
@@ -23,6 +23,10 @@ module.exports = {
 			{
 				test: /\.hbs$/,
 				loader: 'handlebars-loader'
+			},
+			{
+				test: /\.js$/,
+				loader: 'babel-loader'
 			}
 		]
 	},
