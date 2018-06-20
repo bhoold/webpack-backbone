@@ -5,8 +5,10 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
+	mode: 'development',
 	entry: {
-		app: './src/app.js'
+		//app: './src/app.js'
+		app: ['babel-polyfill', './src/app.js']
 	},
 	output: {
 		filename: '[name].bundle.js',
@@ -19,7 +21,7 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.handlebars$/,
+				test: /\.hbs$/,
 				loader: 'handlebars-loader'
 			}
 		]

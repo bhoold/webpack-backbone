@@ -1,14 +1,14 @@
 import BaseModel from './baseModel';
 
-export default BaseModel.extend({
+const AppModel =  BaseModel.extend({
 	defaults: function() {
 		return {
 			title: "我是标题",
-			body: "内容很多...",
-			formData: {
-				color: "白色",
-				size: "8"
-			}
+			body: "内容很多..."
 		}
 	}
 });
+
+export {
+	AppModel
+}

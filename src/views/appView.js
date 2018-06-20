@@ -1,42 +1,46 @@
 import $ from 'jquery';
 import BaseView from './baseView';
 
-export default BaseView.extend({
+const AppView =  BaseView.extend({
 	el: $("#app"),
-	template: require("../pages/layout.handlebars"),
+	template: require("../pages/layout.hbs"),
 	events: {
 		'input [b-input="formData.color"]': "onColorChange",
 		'input [b-input="formData.size"]': "onSizeChange",
 		
 	},
-	onColorChange (e) {
-		let value = e.currentTarget.value;
-		this.model.set('formData.color', value);
+	onColorChange: function(e) {
+		var value = e.currentTarget.value;
+		this.model.set('title', value);
 		return false;
 	},
-	onSizeChange (e) {
-		let value = e.currentTarget.value;
-		this.model.set('formData.size', value);
+	onSizeChange: function(e) {
+		var value = e.currentTarget.value;
+		this.model.set('body', value);
 		return false;
 	},
-	setColor() {
-		this.$('[b-bind="formData.color"]').text(this.model.get('formData.color'));
+	setColor: function() {
+		this.$('h1').text(this.model.get('title'));
 	},
-	setSize() {
-		this.$('[b-bind="formData.size"]').text(this.model.get('formData.size'));
+	setSize: function() {
+		this.$('.body').text(this.model.get('body'));
 	},
 
 
-	initialize() {
+	initialize: function() {
 		console.log(window.v = this)
 
-		this.listenTo(this.model,'change:formData.color',this.setColor);
-		this.listenTo(this.model,'change:formData.size',this.setSize);
+
+		this.listenTo(this.model,'change:title',this.setColor);
+		this.listenTo(this.model,'change:body',this.setSize);
 		this.render();
 	},
-	render() {
-
+	render: function() {
 		this.$el.html(this.template(this.model.attributes));
 		return this;
 	}
 });
+
+export {
+	AppView
+}

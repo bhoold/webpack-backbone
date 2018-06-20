@@ -1,6 +1,6 @@
-import BaseRouter from './baseRouter';
+import BaseCollection from './baseCollection';
 
 
-export default BaseRouter.extend({
+export default BaseCollection.extend({
 
 });

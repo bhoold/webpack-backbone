@@ -1,5 +1,5 @@
-import AppView from './views/appView';
-import AppModel from './models/appModel';
+import {AppView} from './views/appView';
+import {AppModel} from './models/appModel';
 
 
 let appView = new AppView({
