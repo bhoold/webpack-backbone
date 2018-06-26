@@ -6,17 +6,27 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
 	mode: 'development',
+	//entry: ["babel-polyfill", "./src/app.js"],
 	entry: {
 		app: './src/app.js'
 		//app: ['babel-polyfill', './src/app.js']
 	},
 	output: {
 		filename: '[name].bundle.js',
-		path: path.resolve(__dirname, 'dist')
+		path: path.resolve(__dirname, 'dist'),
+		publicPath: '/'
 	},
 	devtool: 'inline-source-map',
 	devServer: {
-		contentBase: './dist'
+		headers: {
+
+		},
+		//host: '0.0.0.0',
+		contentBase: './dist',
+		compress: true,
+		port: 3000,
+		//bonjour: true,
+		open: true
 	},
 	module: {
 		rules: [
@@ -25,8 +35,9 @@ module.exports = {
 				loader: 'handlebars-loader'
 			},
 			{
-				test: /\.js$/,
-				loader: 'babel-loader'
+				test: /\.js$/, 
+				//exclude: /node_modules/, 
+				loader: "babel-loader" 
 			}
 		]
 	},

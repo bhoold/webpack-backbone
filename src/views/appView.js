@@ -2,7 +2,7 @@ import 'lodash';
 import $ from 'jquery';
 import Backbone from 'backbone';
 
-var AppView =  Backbone.View.extend({
+let AppView =  Backbone.View.extend({
 	el: $("#app"),
 	template: require("../pages/layout.hbs"),
 	events: {
@@ -10,25 +10,30 @@ var AppView =  Backbone.View.extend({
 		'input [b-input="formData.size"]': "onSizeChange"
 		
 	},
-	onColorChange: function(e) {
-		var value = e.currentTarget.value;
+	onColorChange(e) {
+		let value = e.currentTarget.value;
 		this.model.set('title', value);
 		return false;
 	},
-	onSizeChange: function(e) {
-		var value = e.currentTarget.value;
+	onSizeChange(e) {
+		let value = e.currentTarget.value;
 		this.model.set('body', value);
 		return false;
 	},
-	setColor: function() {
+	setColor() {
 		this.$('h1').text(this.model.get('title'));
 	},
-	setSize: function() {
+	setSize() {
 		this.$('.body').text(this.model.get('body'));
+	},
+	testBabel() {
+		let a = 2;
+		const aa = 2342;
+		return c =a + aa;
 	},
 
 
-	initialize: function() {
+	initialize() {
 		console.log(window.v = this)
 
 
@@ -36,7 +41,7 @@ var AppView =  Backbone.View.extend({
 		this.listenTo(this.model,'change:body',this.setSize);
 		this.render();
 	},
-	render: function() {
+	render() {
 		this.$el.html(this.template(this.model.attributes));
 		return this;
 	}

@@ -1,6 +1,6 @@
 import Backbone from 'backbone';
 
-var AppModel =  Backbone.Model.extend({
+let AppModel =  Backbone.Model.extend({
 	defaults: function() {
 		return {
 			title: "我是标题",

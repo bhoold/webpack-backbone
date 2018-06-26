@@ -1,6 +1,8 @@
 {
 	"presets": [
 		["env", {
+			"loose": true,
+			"debug": true,
 			"modules": false,
 			"targets": {
 				"browsers": ["> 1%", "last 2 versions", "not ie < 8"]
@@ -9,6 +11,13 @@
 	],
 	"plugins": [
 		"transform-es3-member-expression-literals",
-		"transform-es3-property-literals"
+		"transform-es3-property-literals",
+		"transform-es3-modules-literals",
+		["transform-runtime", {
+			"helpers": false,
+			"polyfill": false,
+			"regenerator": true,
+			"moduleName": "babel-runtime"
+		  }]
 	]
 }
